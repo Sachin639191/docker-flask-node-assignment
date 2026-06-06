@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Assignment 2 Form</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main class="page">
+        <section class="form-panel">
+            <h1>Student Registration Form</h1>
+            <p>Submit the form from Node.js Express to the Flask backend.</p>
+
+            <form action="/submit" method="POST">
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" placeholder="Enter your email" required>
+
+                <label for="course">Course</label>
+                <input id="course" type="text" name="course" placeholder="Enter course name" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Write a short message"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+
+            <% if (error) { %>
+                <div class="alert error"><%= error %></div>
+            <% } %>
+
+            <% if (result) { %>
+                <div class="alert success">
+                    <strong><%= result.message %></strong>
+                    <span>Name: <%= result.name %></span>
+                    <span>Email: <%= result.email %></span>
+                    <span>Course: <%= result.course %></span>
+                    <span>Message: <%= result.student_message || 'No message provided' %></span>
+                </div>
+            <% } %>
+        </section>
+    </main>
+</body>
+</html>
